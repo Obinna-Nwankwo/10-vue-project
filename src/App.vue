@@ -1,62 +1,28 @@
 <template>
-  <div class="w-full  flex">
-    <div class="m-auto">
-      <h1 class="text-center  font-black  text-2xl  mb-5" >Igbo Names {{ nameCount }} </h1>
-      <ul>
-        <li  class="flex justify-between" v-for="(name, index) in Names"  :key="name.name">
-          <div class="">
-              {{ name.name }} 
-            </div>
-              <button  @click="removeName(index)">x</button>
-        </li>
-      </ul>
+  <AppHeader />
 
-      <form class="mt-10 "  @submit.prevent="addName">
-        <input class="border  rounded-lg"  v-model="newName"  placeholder="Please enter a name .....">
-        <button  class="border rounded-md  bg-gradient-to-t from-green-400  to-black"  type ="submit">Add Name</button>
-      </form>
-      <small>Current list Names  : {{ nameCount }} </small>
-    </div>
+  <div class="w-full  flex">
+      <EventCalendar  />
   </div>
   
 </template>
 
 <script>
+import AppHeader  from  "./components/AppHeader.vue";
+/* import IgboNames  from  "./components/IgboNames.vue";*/
+import  EventCalendar  from  "./components/EventCalendar.vue";
+
+
 export default {
-  computed : {
-    nameCount (){
-    return this.Names.length;
-    },
-  },
-
-  methods : {
-    addName() {
-      if (this.newName  !==  "") {
-        this.Names.push({name : this.newName});
-        this.newName  =  "";
-      }
-    },
-
-    removeName(index) {
-      this.Names  =  this.Names.filter((name,  i ) =>  i !== index);
-      },
-    },
-
-    data() {
-      return {
-        newName:  "",
-
-        Names : [
-            {name : "Nwankwo"},
-            {name : "Okeyafor"},
-            {name : "Ngbeke"},
-            {name : "ChukwuEbuka"}
-      ],
-    };
-  },
+  components : {
+    AppHeader, 
+    EventCalendar,
+     },
 };
 </script>
 
 <style>
+  .inputFiled{@apply ring-1 shadow-sm appearance-none focus:outline-none  rounded-md  leading-6 text-sm py-1  pl-5  focus:ring-blue-400 focus:ring-2 }
+  .btn{@apply hover:bg-blue-400  text-sm  font-medium rounded-full text-white  shadow-sm  py-2  px-5 ml-2}
 
 </style>

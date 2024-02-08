@@ -3,3 +3,11 @@
 @tailwind components;
 
 @tailwind utilities;
+
+
+
+.h1Text {@apply text-center font-black text-2xl mb-5}
+
+  .--width-wrap {
+      width: 14.28%;
+  }
