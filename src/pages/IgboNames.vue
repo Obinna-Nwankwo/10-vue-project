@@ -12,7 +12,7 @@
 
       <form class="mt-10 "  @submit.prevent="addName">
         <input class="inputFiled"  v-model="newName"  placeholder="Please enter a name .....">
-        <button  class="btn  bg-blue-500"  type ="submit">Add Name</button>
+        <button  class="  --btn"  type ="submit">Add Name</button>
       </form>
       <small>Current list Names  : {{ nameCount }} </small>
     </div>
